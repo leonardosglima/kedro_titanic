@@ -13,6 +13,14 @@ def _create_family_size(df: pd.DataFrame) -> pd.DataFrame:
     df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
     return df
 
+def _extract_title(df: pd.DataFrame) -> pd.DataFrame:
+    """Extrai o título do passageiro a partir da coluna 'Name'."""
+    df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\.', expand=False)
+    # Agrupa títulos raros em uma única categoria 'Rare'
+    rare_titles = (df['Title'].value_counts() < 10)
+    df['Title'] = df['Title'].apply(lambda x: 'Rare' if rare_titles[x] else x)
+    return df
+
 def preprocess_titanic_data(df: pd.DataFrame) -> pd.DataFrame:
     """Nó para pré-processar os dados do Titanic. Inclui tratamento de valores faltantes e engenharia de features."""
     # 1. Engenharia de Features
