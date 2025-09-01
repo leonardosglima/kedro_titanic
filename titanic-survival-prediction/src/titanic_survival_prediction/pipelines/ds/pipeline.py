@@ -9,7 +9,6 @@ from kedro.pipeline import node, Pipeline  # noqa
 from kedro.pipeline.modular_pipeline import pipeline
 from .nodes import train_model, evaluate_model
 
-
 def create_pipeline(**kwargs) -> Pipeline:
     return Pipeline([
         node(
