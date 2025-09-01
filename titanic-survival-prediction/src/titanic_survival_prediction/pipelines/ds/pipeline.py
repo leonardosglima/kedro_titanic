@@ -6,7 +6,7 @@ generated using Kedro 1.0.0
 
 
 from kedro.pipeline import node, Pipeline  # noqa
-from kedro.pipeline.modular_pipeline import pipeline
+from kedro.pipeline import pipeline
 from .nodes import train_model, evaluate_model
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -18,7 +18,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             name='train_model_node',
         ),
         node(
-            func=evaluate_mode,
+            func=evaluate_model,
             inputs=['classifier', 'X_test', 'y_test'],
             outputs='metrics',
             name='evaluate_model_node',
