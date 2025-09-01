@@ -39,7 +39,7 @@ def preprocess_titanic_data(df: pd.DataFrame) -> pd.DataFrame:
                     "Mrs": 3,
                     "Master": 4,
                     "Rare": 5}
-    df['Title'] = df['Title'].map(title_mappiing)
+    df['Title'] = df['Title'].map(title_maping)
     df['Sex'] =df['Sex'].map({'male': 0, 'female': 1})
     df['Embarked'] = df['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
 
