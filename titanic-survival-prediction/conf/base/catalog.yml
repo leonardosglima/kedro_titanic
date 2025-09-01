@@ -3,8 +3,33 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
 
-
-
 titanic_raw_data:
   type: pandas.CSVDataSet
   filepath: data/01_raw/train.csv
+
+# Dados Intermediários
+preprocessed_titanic:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/preprocessed_titanic.pq
+
+X_train:
+  type: pandas.ParquetDataSet
+  filepath: data/04_feature/X_train.pq
+
+X_test:
+  type: pandas.ParquetDataSet
+  filepath: data/04_feature/X_test.pq
+
+y_test:
+  type: pandas.ParquetDataSet
+  filepath: data/04_feature/y_test.pq
+
+# Modelos e Métricas
+classifier:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/classifier.pkl
+  layer: models
+
+metrics:
+  type: json.JSONDataSet
+  filepath: data/07_model_output/metrics.json
