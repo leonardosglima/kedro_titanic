@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import Dict
 from kedro.pipeline import Pipeline
-from titanic_survival_prediction.pipelins import de, ds
+from titanic_survival_prediction.pipelines import de, ds
 
 def register_pipelines() -> Dict[str, Pipeline]:
     """Registra os pipelines do projeto."""
