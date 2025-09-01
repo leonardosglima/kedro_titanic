@@ -1,0 +1,12 @@
+# This is a boilerplate parameters config generated for pipeline 'de'
+# using Kedro 1.0.0.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://docs.kedro.org/en/1.0.0/configuration/parameters.html
+
+# conf/base/parameters.yml
+
+data_science:
+  test_size: 0.2
+  random_state: 42
+  target_column: 'Survived'
